@@ -2,6 +2,7 @@
 package com.fscut.jpa.repo;
 
 import com.fscut.jpa.Model.DTO.UserDTO;
+import com.fscut.jpa.Model.DTO.UserNameAndAddress;
 import com.fscut.jpa.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,5 +43,6 @@ public interface UserRepo extends PagingAndSortingRepository<User, Integer>, Jpa
 
     UserDTO findByIdAndName(int id,String name);
 
+    UserNameAndAddress findByIdAndNameLike( int id,String name);
 
 }

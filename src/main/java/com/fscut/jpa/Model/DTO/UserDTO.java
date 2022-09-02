@@ -11,7 +11,6 @@ import org.springframework.lang.NonNullApi;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserDTO {
     private String name;
     private String address;
