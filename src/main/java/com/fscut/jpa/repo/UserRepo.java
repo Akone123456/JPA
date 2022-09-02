@@ -1,6 +1,7 @@
-@org.springframework.lang.NonNullApi
+
 package com.fscut.jpa.repo;
 
+import com.fscut.jpa.Model.DTO.UserDTO;
 import com.fscut.jpa.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,4 +39,8 @@ public interface UserRepo extends PagingAndSortingRepository<User, Integer>, Jpa
 
     @Nullable
     List<User> findFirst4ByNameLike(String name);
+
+    UserDTO findByIdAndName(int id,String name);
+
+
 }

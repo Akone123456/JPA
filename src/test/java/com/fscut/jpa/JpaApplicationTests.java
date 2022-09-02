@@ -1,5 +1,6 @@
 package com.fscut.jpa;
 
+import com.fscut.jpa.Model.DTO.UserDTO;
 import com.fscut.jpa.entity.User;
 import com.fscut.jpa.repo.UserRepo;
 import org.junit.jupiter.api.Test;
@@ -64,9 +65,14 @@ class JpaApplicationTests {
     @Test
     public void firstAndTop() {
         userRepo.findFirst4ByNameLike("李%").forEach(System.out::println);
-
         userRepo.findTop3ByNameLike("李%").forEach(System.out::println);
 
+    }
+
+    @Test
+    public void findByUserDTO() {
+        UserDTO userDTO = userRepo.findByIdAndName(1,"老王");
+        System.out.println(userDTO);
     }
 
 
