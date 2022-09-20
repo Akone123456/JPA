@@ -1,11 +1,13 @@
 package com.fscut.jpa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fscut.jpa.Enum.SexEnum;
+import lombok.*;
+import net.bytebuddy.asm.Advice;
+import org.springframework.data.domain.PageRequest;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author liuxinwei
@@ -15,23 +17,19 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "user")
+@Builder
+@ToString(exclude = "address")
 public class User {
-    /**
-     * 主键id
-     */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "age")
+    private String email;
+    @Enumerated(value = EnumType.STRING)
+    private SexEnum sex;
     private Integer age;
-
-    @Column(name = "address")
-    private String address;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<UserAddress> address;
 }

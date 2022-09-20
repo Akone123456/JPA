@@ -1,9 +1,6 @@
 package com.fscut.jpa.Crud;
 
-import com.fscut.jpa.entity.User;
-import com.fscut.jpa.repo.UserRepo;
-import org.junit.jupiter.api.Test;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.fscut.jpa.repo.UserRepo11;
 
 import javax.annotation.Resource;
 
@@ -14,14 +11,14 @@ import javax.annotation.Resource;
 
 public class CrudTest {
     @Resource
-    private UserRepo userRepo;
+    private UserRepo11 userRepo;
 
-    @Test
-    public void crudRepository() {
-        User user = new User();
-        user.setAddress("巴基斯坦");
-        user.setAge(200);
-        user.setName("小花");
-        userRepo.save(user);
-    }
+//    @Test
+//    public void crudRepository() {
+//        User user = new User();
+//        user.setAddress("巴基斯坦");
+//        user.setAge(200);
+//        user.setName("小花");
+//        userRepo.save(user);
+//    }
 }
